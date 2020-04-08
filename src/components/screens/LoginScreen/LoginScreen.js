@@ -1,31 +1,52 @@
 import React from 'react';
-import { View, Text, ImageBackground } from 'react-native';
+import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import SvgUri from 'react-native-svg-uri';
+
+import bgImage from '../../../assets/bg.svg';
 
 import BlockWrapper from '../../ui-components/BlockWrapper';
 import DateInfo from '../../ui-components/DateInfo';
+import Icon from '../../ui-components/Icon';
+import Button from '../../ui-components/Button';
 
-const bgImage = '../../../assets/sign_in_bg.png';
+const LoginScreen = ({ onSignIn }) => {
+    const signIn = () => {
+        onSignIn();
+    };
 
-const LoginScreen = () => {
     return (
         <View style={styles.loginScreen}>
-            <ImageBackground
-                style={styles.bgImageWrapper}
-                source={require(bgImage)}
-            />
-            {/* <View style={styles.bgImageWrapper}>
-                <SvgUri
-                    width="135"
-                    source={require(bgImage)}
-                    style={styles.bgImage}
-                />
-            </View> */}
+            <View style={styles.bgImageWrapper}>
+                <SvgUri svgXmlData={bgImage} style={styles.bgImage} />
+            </View>
             <View style={styles.content}>
-                <View style={styles.dateInfo}>
-                    <BlockWrapper>
-                        <DateInfo />
-                    </BlockWrapper>
-                </View>
+                <BlockWrapper>
+                    <DateInfo />
+                </BlockWrapper>
+                <BlockWrapper>
+                    <Icon width={60} height={40} type="logo" />
+                    <Text style={styles.textTitle}>eWalle</Text>
+                    <Text style={styles.textDescription}>
+                        {`Open An Account For Digital
+E-Wallet Solutions.Instant
+Payouts.
+
+Join For Free`}
+                    </Text>
+                </BlockWrapper>
+                <BlockWrapper style={styles.buttonContent}>
+                    <Button
+                        width={190}
+                        height={50}
+                        icon="arrowRight"
+                        title="Sign in"
+                        onPress={signIn}
+                    />
+                    <Text style={styles.createAccountText}>
+                        Create an account
+                    </Text>
+                </BlockWrapper>
             </View>
         </View>
     );
@@ -33,24 +54,52 @@ const LoginScreen = () => {
 
 export default LoginScreen;
 
+LoginScreen.propTypes = {
+    onSignIn: PropTypes.func.isRequired,
+};
+
 const styles = {
     loginScreen: {
         flex: 1,
-        width: '100%',
         flexDirection: 'row',
         backgroundColor: '#FFFFFF', //'#171822',
     },
     bgImageWrapper: {
-        width: 135,
+        position: 'relative',
+        width: 132,
+        alignItems: 'flex-start',
+        backgroundColor: '#CCCCCC',
+    },
+    bgImage: {
+        position: 'absolute',
+        top: 0,
+        left: -68,
     },
     content: {
-        alignItems: 'center',
-        //justifyContent: 'center',
+        //alignItems: 'center',
+        paddingLeft: 15,
+        paddingTop: 30,
+        paddingBottom: 50,
+        justifyContent: 'space-between',
         color: '#FFFFFF',
     },
-    dateInfo: {
+    textTitle: {
+        marginTop: 10,
+        marginBottom: 10,
+        fontSize: 28,
+        color: '#1B1D28',
+        fontWeight: 'bold',
+    },
+    textDescription: {
+        fontSize: 14,
+        color: '#7B7F9E',
+        lineHeight: 20,
+    },
+    createAccountText: {
+        //width: 190,
+        textAlign: 'center',
         marginTop: 30,
-        marginBottom: 30,
-        marginLeft: 15,
+        fontSize: 16,
+        color: '#1B1D28',
     },
 };

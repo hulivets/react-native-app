@@ -22,6 +22,24 @@ import snowDay from '../../../assets/weather_icons/13d.svg';
 import snowNight from '../../../assets/weather_icons/13n.svg';
 import mistDay from '../../../assets/weather_icons/50d.svg';
 import mistNight from '../../../assets/weather_icons/50n.svg';
+import logo from '../../../assets/logo.svg';
+import arrowRight from '../../../assets/arrowRight.svg';
+import menu from '../../../assets/menu.svg';
+import add from '../../../assets/add.svg';
+import cardScanner from '../../../assets/cardScanner.svg';
+import settings from '../../../assets/settings.svg';
+import man from '../../../assets/avatars/man.svg';
+import avatar1 from '../../../assets/avatars/avatar1.svg';
+import avatar2 from '../../../assets/avatars/avatar2.svg';
+import avatar3 from '../../../assets/avatars/avatar3.svg';
+import sendMoney from '../../../assets/optionItems/sendMoney.svg';
+import cashbackOffer from '../../../assets/optionItems/cashbackOffer.svg';
+import electricityBill from '../../../assets/optionItems/electricityBill.svg';
+import flightTickets from '../../../assets/optionItems/flightTickets.svg';
+import mobilePrepaid from '../../../assets/optionItems/mobilePrepaid.svg';
+import mobileTickets from '../../../assets/optionItems/mobileTickets.svg';
+import moreOptions from '../../../assets/optionItems/moreOptions.svg';
+import receiveMoney from '../../../assets/optionItems/receiveMoney.svg';
 
 const ICONS = {
     '01d': clearSkyDay,
@@ -42,9 +60,25 @@ const ICONS = {
     '13n': snowNight,
     '50d': mistDay,
     '50n': mistNight,
+    logo,
+    arrowRight,
+    menu,
+    add,
+    cardScanner,
+    avatar1,
+    avatar2,
+    avatar3,
+    man,
+    settings,
+    sendMoney,
+    cashbackOffer,
+    electricityBill,
+    flightTickets,
+    mobilePrepaid,
+    mobileTickets,
+    moreOptions,
+    receiveMoney,
 };
-
-console.log(ICONS)
 
 export default function Icon({ width, height, type, fill }) {
     const svgXmlData = ICONS[type] || null;

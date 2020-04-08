@@ -21,7 +21,7 @@ const DataInfo = () => {
     });
     const [weatherData, setWeatherData] = useState({
         temperature: 0,
-        icon: '01d',
+        icon: '01n',
     });
 
     useEffect(() => {
@@ -80,9 +80,9 @@ const DataInfo = () => {
 
     const renderWeather = () => {
         return (
-            <View>
-                <Icon width={20} height={20} type={weatherData.icon} />
-                <Text style={styles.weather}>{weatherData.temperature}&#176; C</Text>
+            <View style={styles.weatherContainer}>
+                <Icon width={18} height={18} type={weatherData.icon} fill="#000000" />
+                <Text style={styles.weatherText}>{weatherData.temperature}&#176; C</Text>
             </View>
         );
     };
@@ -102,7 +102,7 @@ export default DataInfo;
 
 const styles = {
     timeContainer: {
-        width: 187,
+        width: 195,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -117,7 +117,12 @@ const styles = {
         fontSize: 16,
         color: '#1B1D28',
     },
-    weather: {
+    weatherContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    weatherText: {
+        marginLeft: 5,
         color: '#1B1D28',
         fontSize: 18,
         fontWeight: 'bold',
