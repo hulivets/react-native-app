@@ -7,3 +7,11 @@ export function onSignIn() {
         dispatch(signIn());
     };
 }
+
+export const logOut = createAction('logOut');
+
+export function onLogOut() {
+    return dispatch => {
+        dispatch(logOut());
+    };
+}

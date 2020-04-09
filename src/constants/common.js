@@ -1,3 +1,7 @@
+import { version } from '../../package.json';
+
+export const appVersion = version;
+
 export const MAIN_SCREEN_OPTIONS = [
     {
         id: 1,

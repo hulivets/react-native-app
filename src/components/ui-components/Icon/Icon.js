@@ -1,6 +1,7 @@
 /* eslint-disable curly */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
 import SvgUri from 'react-native-svg-uri';
 
@@ -40,6 +41,8 @@ import mobilePrepaid from '../../../assets/optionItems/mobilePrepaid.svg';
 import mobileTickets from '../../../assets/optionItems/mobileTickets.svg';
 import moreOptions from '../../../assets/optionItems/moreOptions.svg';
 import receiveMoney from '../../../assets/optionItems/receiveMoney.svg';
+import close from '../../../assets/close.svg';
+import logOut from '../../../assets/logOut.svg';
 
 const ICONS = {
     '01d': clearSkyDay,
@@ -78,20 +81,24 @@ const ICONS = {
     mobileTickets,
     moreOptions,
     receiveMoney,
+    close,
+    logOut,
 };
 
-export default function Icon({ width, height, type, fill }) {
+export default function Icon({ width, height, type, fill, style, onPress }) {
     const svgXmlData = ICONS[type] || null;
 
     if (!svgXmlData) return null;
 
     return (
-        <SvgUri
-            width={width}
-            height={height}
-            fill={fill}
-            svgXmlData={svgXmlData}
-        />
+        <View style={styles.container(style)} onPress={onPress}>
+            <SvgUri
+                width={width}
+                height={height}
+                fill={fill}
+                svgXmlData={svgXmlData}
+            />
+        </View>
     );
 }
 
@@ -100,10 +107,22 @@ Icon.propTypes = {
     height: PropTypes.number,
     fill: PropTypes.string,
     type: PropTypes.string.isRequired,
+    style: PropTypes.object,
+    onPress: PropTypes.func,
 };
 
 Icon.defaultProps = {
     width: 20,
     height: 20,
     fill: null,
+    style: null,
+    onPress: null,
+};
+
+const styles = {
+    container: style => {
+        return {
+            ...style,
+        };
+    },
 };

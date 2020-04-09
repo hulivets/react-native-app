@@ -5,10 +5,20 @@ import PropTypes from 'prop-types';
 import Header from '../../ui-components/Header';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
+import Accounts from '../../screens/Accounts';
+import Transactions from '../../screens/Transactions';
+import Stats from '../../screens/Stats';
+import Settings from '../../screens/Settings';
+import Help from '../../screens/Help';
 
 const SCREEN_BY_NAME = {
     Home,
     Profile,
+    Accounts,
+    Transactions,
+    Stats,
+    Settings,
+    Help,
 };
 
 export default function ScreenContainer({ navigation, route }) {
