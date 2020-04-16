@@ -144,6 +144,14 @@ android {
         }
     }
     signingConfigs {
+        release {
+            if (project.hasProperty('ewallet.keystore')) {
+                storeFile file('ewallet.keystore')
+                storePassword 'Dema12molodets'
+                keyAlias 'bank_app'
+                keyPassword 'Dema12molodets'
+            }
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
