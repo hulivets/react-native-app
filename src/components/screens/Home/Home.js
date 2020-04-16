@@ -1,18 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, InteractionManager } from 'react-native';
 
 import BlockWrapper from '../../ui-components/BlockWrapper';
 import BalanceCard from '../../ui-components/BalanceCard';
 import ContactsList from '../../ui-components/ContactsList';
 import MainOptionsList from '../../ui-components/MainOptionsList';
 
-export default function Home({ navigation, route }) {
+export default function Home({ navigation, route, openBottomPanel }) {
+    const handleOpenIncreaseBalancePanel = () => {
+        openBottomPanel('increaseBalance', 1);
+    };
+
     return (
         <View style={styles.screenContainer}>
             <BlockWrapper
                 title="Account Overview"
                 style={styles.commonBlockStyle}>
-                <BalanceCard />
+                <BalanceCard onPress={handleOpenIncreaseBalancePanel} />
             </BlockWrapper>
             <BlockWrapper
                 title="Send Money"

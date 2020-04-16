@@ -1,29 +1,11 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import RoundButton from '../RoundButton';
 import ContactsListItem from '../ContactsListItem';
 
-const CONTACTS_DATA = [
-    {
-        id: 1,
-        name: 'Mike',
-        image: 'avatar1',
-    },
-    {
-        id: 2,
-        name: 'Joshpeh',
-        image: 'avatar1',
-    },
-    {
-        id: 3,
-        name: 'Ashley',
-        image: '',
-    },
-];
-
-export default function ContactsList() {
+export default function ContactsList({ contactsData }) {
     return (
         <ScrollView
             horizontal
@@ -35,7 +17,7 @@ export default function ContactsList() {
                 height={52}
                 style={styles.roundButton}
             />
-            {CONTACTS_DATA.map(contact => (
+            {contactsData.map(contact => (
                 <ContactsListItem
                     key={contact.id}
                     name={contact.name}
@@ -55,4 +37,8 @@ const styles = {
         marginLeft: 20,
         marginRight: 15,
     },
+};
+
+ContactsList.propTypes = {
+    contactsData: PropTypes.array.isRequired,
 };

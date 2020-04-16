@@ -4,10 +4,18 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import Icon from '../Icon';
 
-export default function Button({ width, height, icon, title, color, onPress }) {
+export default function Button({
+    width,
+    height,
+    icon,
+    title,
+    color,
+    onPress,
+    style,
+}) {
     return (
         <TouchableOpacity
-            style={styles.buttonContainer(width, height, color)}
+            style={styles.buttonContainer(width, height, color, style)}
             onPress={onPress}>
             <Text style={styles.textTitle}>{title}</Text>
             <View style={styles.icon}>
@@ -24,6 +32,7 @@ Button.propTypes = {
     title: PropTypes.string,
     color: PropTypes.string,
     onPress: PropTypes.func,
+    style: PropTypes.object,
 };
 
 Button.defaultProps = {
@@ -33,11 +42,13 @@ Button.defaultProps = {
     title: '',
     color: '#FFAC30',
     onPress: null,
+    style: {},
 };
 
 const styles = {
-    buttonContainer: (w, h, c) => {
+    buttonContainer: (w, h, c, style) => {
         return {
+            ...style,
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',

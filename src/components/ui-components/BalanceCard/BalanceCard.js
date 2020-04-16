@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 import RoundButton from '../RoundButton';
 
-export default function BalanceCard({ userBalance }) {
+export default function BalanceCard({ userBalance, onPress }) {
     return (
         <View style={styles.container}>
             <View>
                 <Text style={styles.userBalanceText}>{userBalance}</Text>
                 <Text style={styles.currentBalanceText}>Current balance</Text>
             </View>
-            <RoundButton iconType="add" />
+            <RoundButton iconType="add" onPress={onPress} />
         </View>
     );
 }

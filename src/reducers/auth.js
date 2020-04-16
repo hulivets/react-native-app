@@ -9,6 +9,23 @@ const INIT = {
         lastName: 'Black',
         address: 'Seatle, Washington',
     },
+    contactsData: [
+        {
+            id: 1,
+            name: 'Mike',
+            image: 'avatar1',
+        },
+        {
+            id: 2,
+            name: 'Joshpeh',
+            image: 'avatar1',
+        },
+        {
+            id: 3,
+            name: 'Ashley',
+            image: '',
+        },
+    ],
 };
 
 export const authReducer = createReducer(INIT, {

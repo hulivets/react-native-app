@@ -1,6 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import { NAMES } from '../../constants/screenNames';
+
 import ScreenContainer from '../containers/ScreenContainer';
 import DrawerContent from '../ui-components/DrawerContent';
 
@@ -13,13 +15,13 @@ export default function MyDrawer() {
             drawerPosition="right"
             drawerStyle={styles.drawerStyle}
             drawerContent={props => <DrawerContent {...props} />}>
-            <Drawer.Screen name="Home" component={ScreenContainer} />
-            <Drawer.Screen name="Profile" component={ScreenContainer} />
-            <Drawer.Screen name="Accounts" component={ScreenContainer} />
-            <Drawer.Screen name="Transactions" component={ScreenContainer} />
-            <Drawer.Screen name="Stats" component={ScreenContainer} />
-            <Drawer.Screen name="Settings" component={ScreenContainer} />
-            <Drawer.Screen name="Help" component={ScreenContainer} />
+            {NAMES.map(screen => (
+                <Drawer.Screen
+                    key={screen.id}
+                    name={screen.name}
+                    component={ScreenContainer}
+                />
+            ))}
         </Drawer.Navigator>
     );
 }

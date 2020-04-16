@@ -30,7 +30,7 @@ const DataInfo = () => {
         const intervalsList = [interval, weatherInterval];
 
         return () => intervalsList.forEach(int => clearInterval(int));
-    }, []);
+    }, [dateData]);
 
     const getWeatherData = async () => {
         const { APIKEY, cityId } = weatherConfig;

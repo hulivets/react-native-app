@@ -6,7 +6,9 @@ import { appVersion } from '../../../constants/common';
 
 import DrawerNavList from '../DrawerNavList';
 import ProfileInfoCard from '../ProfileInfoCard';
+import Home from '../../screens/Home';
 import Icon from '../Icon';
+import Header from '../Header';
 
 export default function DrawerContent({
     state,
@@ -29,7 +31,15 @@ export default function DrawerContent({
                     <Icon type="close" />
                 </TouchableOpacity>
             </View>
-            <DrawerNavList state={state} navigation={navigation} />
+            <View style={styles.navLinks}>
+                <DrawerNavList state={state} navigation={navigation} />
+            </View>
+            <View style={styles.imageWrapper} pointerEvents="none">
+                <View style={styles.image}>
+                    <Header />
+                    <Home />
+                </View>
+            </View>
             <TouchableOpacity
                 style={styles.logOutWrapper}
                 onPress={handleLogOut}>
@@ -52,10 +62,31 @@ const styles = {
     container: {
         flex: 1,
         justifyContent: 'space-between',
+        position: 'relative',
     },
     header: {
         flexDirection: 'row',
         position: 'relative',
+    },
+    navLinks: {
+        width: 150,
+    },
+    imageWrapper: {
+        position: 'absolute',
+        top: 90,
+        right: -200,
+        width: 350,
+        height: 550,
+        borderTopLeftRadius: 30,
+        borderBottomLeftRadius: 30,
+        transform: [{ rotateZ: '-15deg' }],
+        backgroundColor: '#FFFFFF',
+    },
+    image: {
+        flex: 1,
+        left: -30,
+        top: -50,
+        transform: [{ scale: 0.8 }],
     },
     profileInfoWrapper: {
         alignItems: 'center',

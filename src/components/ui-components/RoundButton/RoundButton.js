@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, InteractionManager } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';
@@ -12,8 +12,15 @@ export default function RoundButton({
     height,
     style,
 }) {
+    const handleOnPress = () => {
+        if (!onPress) return;
+        InteractionManager.runAfterInteractions(() => {
+            onPress();
+        });
+    };
+
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity onPress={handleOnPress}>
             <View style={styles.buttonWrapper(width, height, color, style)}>
                 <Icon width={14} height={14} type={iconType} />
             </View>

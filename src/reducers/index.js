@@ -1,7 +1,7 @@
-import { rootReducer } from './root';
 import { authReducer } from './auth';
+import { viewReducer } from './view';
 
 export default {
-    rootReducer,
     auth: authReducer,
+    view: viewReducer,
 };
